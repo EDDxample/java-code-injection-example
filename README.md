@@ -3,6 +3,7 @@
 
 Injects custom code into a running java process.
 
+![thumbnail](thumbnail.png)
 
 ## Commands
 
