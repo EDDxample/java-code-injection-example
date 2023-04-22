@@ -1,6 +1,8 @@
 package sample;
 
 import java.lang.instrument.Instrumentation;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 public class Agent {
 
@@ -32,7 +34,18 @@ public class Agent {
     /*
      * Calls a private function from the target process.
      */
-    public static void agent1(Instrumentation inst) {
+    public static void agent1(Instrumentation inst) throws Exception {
+        Class<?> clazz = Class.forName("sample.Target");
+
+        // access Target's `private static String secretField`
+        Field f = clazz.getDeclaredField("secretField");
+        f.setAccessible(true);
+        System.out.println(f.get(clazz));
+
+        // access Target's `private static void secretFunction()`
+        Method m = clazz.getDeclaredMethod("secretFunction");
+        m.setAccessible(true);
+        m.invoke(clazz);
     }
 
     /*
