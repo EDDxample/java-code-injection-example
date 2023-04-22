@@ -12,13 +12,13 @@ Injects custom code into a running java process.
 javac sample/*.java
 
 # build agent.jar
-jar -cvmf MANIFEST.MF agent.jar sample/Agent.class
+jar -cvmf MANIFEST.MF agent.jar sample/*.class
 
 # run target process in another terminal (prints the PID)
 java sample/Target
 
 # run injector
-java sample/Injector <PID> [agent0|agent1|agent2]
+java sample/Injector <PID> [agent0|agent1|agent2] <path to agent.jar>
 ```
 
 
