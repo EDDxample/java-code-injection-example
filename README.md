@@ -24,7 +24,7 @@ java sample/Injector <PID> [agent0|agent1|agent2] <path to agent.jar>
 
 ## Goals (a.k.a. Agents)
 - [x] `agent0`: Prints something into the target process.
-- [ ] `agent1`: Calls a private function from the target process.
+- [x] `agent1`: Calls a private function from the target process.
 - [ ] `agent2`: Executes custom code from a Minecraft process.
 
 
